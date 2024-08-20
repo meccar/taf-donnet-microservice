@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Catalog.Products.CreateProduct
 {
-    public record CreateProductCommand(string name, List<string> Category, string Description, string ImageFile, decimal Price): ICommand<CreateProductResult>;
+    public record CreateProductCommand(string Name, List<string> Category, string Description, string ImageFile, decimal Price): ICommand<CreateProductResult>;
 
     public record CreateProductResult(Guid Id);
 
@@ -15,15 +15,16 @@ namespace Catalog.Products.CreateProduct
             var product = new Product
             {
                 Name = command.Name,
-                CategoryAttribute = command.Category,
-                DescriptionAttribute = command.Description,
-                ImageFileMachine = command.ImageFile,
+                Category = command.Category,
+                Description = command.Description,
+                ImageFile = command.ImageFile,
                 Price = command.Price
 
             };
 
-            return new CreateProductResult(Guid.NewGuid());
+            var result = new CreateProductResult(Guid.NewGuid());
 
+            return Task.FromResult(result);
         }
     }
 }
