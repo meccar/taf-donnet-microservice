@@ -1,9 +1,6 @@
-version: "1.0.0"
-
 services:
-  catalogdb:
-    image: postgres
-
-volumes:
-    postgres_catalog:     
-    
+  catalog:
+    image: ${DOCKER_REGISTRY-}catalog
+    build:
+      context: services/Catalog
+      dockerfile: Dockerfile
