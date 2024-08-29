@@ -5,3 +5,5 @@ global using Marten;
 global using BuildingBlocks.CQRS;
 global using Catalog.Models;
 global using Catalog.Exceptions;
+global using FluentValidation;
+global using FluentValidation.AspNetCore;
